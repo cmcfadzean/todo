@@ -1,14 +1,13 @@
-<div class="auth flex-fill">
-  <div class="auth-bar">
-    <div class="auth-title">Log in</div>
-    <div class="auth-logo"></div>
-  </div>
+<div class="auth d-flex flex-column align-items-center justify-content-center flex-fill">
   <div class="auth-form">
+    <div class="auth-title">Log in</div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.email_field :email, autofocus: true, placeholder: "email" %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
-      <%= f.submit "Log in" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "email", class: "form-control auth-input" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "password", class: "form-control auth-input" %>
+      <%= f.submit "Log in", class: "btn auth-btn" %>
     <% end %>
   </div>
-  <%= render "devise/shared/links" %>
+  <div class="auth-links text-center">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
