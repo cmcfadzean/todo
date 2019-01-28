@@ -1,0 +1,16 @@
+.stage {
+  background: $color-darker;
+  color: $text-light;
+  padding: 30px;
+  &-info {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &-actions {
+    &-primary {
+      color: $color-primary;
+    }
+  }
+}

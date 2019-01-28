@@ -1,26 +1,23 @@
-
-<h1>Listing Todo Lists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @todo_lists.each do |todo_list| %>
-      <tr>
-        <td><%= todo_list.title %></td>
-        <td><%= link_to 'Show', todo_list %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Todo list', new_todo_list_path %>
+<div class="stage flex-fill">
+  <div class="stage-info media">
+    <div class="stage-title media-body">All <%= current_user.email %>'s Lists</div>
+    <div class="stage-actions">
+      <%= link_to 'New list', new_todo_list_path, class: "stage-actions-primary" %>
+    </div>
+  </div>
+  <div class="stage-list">
+    <div class="checklist">
+      <% @todo_lists.each do |todo_list| %>
+        <div class="checklist-item media">
+          <%= link_to todo_list.title, todo_list, class: "media-body" %>
+          <%= link_to edit_todo_list_path(todo_list) do %>
+            <%= fa_icon "pencil" %>
+          <% end %>
+          <%= link_to todo_list, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= fa_icon "trash" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

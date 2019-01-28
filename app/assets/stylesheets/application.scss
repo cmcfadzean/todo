@@ -1,9 +1,12 @@
 @import "bootstrap";
+@import "font-awesome";
 
 @import "base/variables";
 @import "base/mixins";
 @import "base/layout";
 
+@import "components/checklist";
 @import "components/messages";
 
 @import "modules/auth";
+@import "modules/stage";
